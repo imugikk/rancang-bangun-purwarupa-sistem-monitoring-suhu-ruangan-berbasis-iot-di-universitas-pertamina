@@ -24,25 +24,31 @@
                     <div class="sidenav-menu-heading">Core</div>
                     <!-- Sidenav Accordion (Dashboard)-->
                     <a class="nav-link collapsed" href="{{url('/dashboard')}}">
-                        <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                        <div class="nav-link-icon"><i data-feather="menu"></i></div>
                         Dashboards
-                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                        data-bs-target="#collapseMonitorings" aria-expanded="false" aria-controls="collapseMonitorings">
+                    <a class="nav-link collapsed" href="{{url('/monitoring')}}">
                         <div class="nav-link-icon"><i data-feather="activity"></i></div>
                         Monitoring
-                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <a class="nav-link collapsed" href="{{ route('users.index') }}">
                         <div class="nav-link-icon"><i data-feather="user"></i></div>
                         User Management
                     </a>
-                    <a class="nav-link collapsed" href="{{ route('limits.index') }}">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">
                         <div class="nav-link-icon"><i data-feather="settings"></i></div>
                         Settings
                         <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
+                    <div class="collapse" id="collapseSettings" data-bs-parent="#accordionSidenav">
+                        <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                            <a class="nav-link" href="/rooms">Ruangan</a>
+                            <a class="nav-link" href="/schedules">Jadwal</a>
+                            <a class="nav-link" href="{{ route('limits.index') }}">Batas Suhu</a>
+                            <a class="nav-link" href="/account">Akun</a>
+                        </nav>
+                    </div>
                     <!-- Sidenav Footer-->
                     <div class="sidenav-footer">
                         <div class="sidenav-footer-content">

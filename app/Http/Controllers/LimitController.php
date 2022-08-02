@@ -16,7 +16,7 @@ class LimitController extends Controller
     {
         $limits= LimitTemperature::orderBy('id', 'asc')->get();
 
-        return view('limits.index', compact('limits'));
+        return view('settings.limits.index', compact('limits'));
     }
 
     /**

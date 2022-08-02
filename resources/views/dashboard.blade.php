@@ -6,27 +6,7 @@
             <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
                 <div class="container-xl px-4">
                     <div class="page-header-content pt-4">
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-auto mt-4">
-                                <h1 class="page-header-title">
-                                    <div class="page-header-icon"><i data-feather="activity"></i></div>
-                                    Dashboard
-                                </h1>
-                                <div class="page-header-subtitle">
-                                </div>
-                            </div>
-                            <div class="col-12 col-xl-auto mt-4">
-                                <h1 style="color: white;">Hello, Ugik!</h1>
-                            </div>
-                            {{-- <div class="col-12 col-xl-auto mt-4">
-                                <div class="input-group input-group-joined border-0" style="width: 16.5rem">
-                                    <span class="input-group-text"><i class="text-primary"
-                                            data-feather="calendar"></i></span>
-                                    <input class="form-control ps-0 pointer" id="litepickerRangePlugin"
-                                        placeholder="Select date range..." />
-                                </div>
-                            </div> --}}
-                        </div>
+                        <div class="row align-items-center justify-content-between"></div>
                     </div>
                 </div>
             </header>
@@ -39,7 +19,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-xl-8 col-xxl-12">
                                         <div class="text-center text-xl-start text-xxl-center mb-4 mb-xl-0 mb-xxl-4">
-                                            <h1 class="text-primary">Welcome to Smart Temperature and Humidity
+                                            <h1 class="text-primary">Welcome to Smart Temperature
                                                 Universitas Pertamina!</h1>
                                             <p class="text-gray-700 mb-0">Lorem ipsum dolor sit amet consectetur
                                                 adipisicing elit. Qui dolor et alias doloribus labore dolorum dolore
@@ -67,6 +47,10 @@
                                         <i class="feather-xl text-white-50" data-feather="thermometer"></i>
                                     </div>
                                 </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-white stretched-link" href="/dashboard/data">View Report</a>
+                                    <div class="text-white"><i class="fas fa-angle-right"></i></div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-3 mb-4">
@@ -79,6 +63,10 @@
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="cloud"></i>
                                     </div>
+                                </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-white stretched-link" href="/dashboard/data">View Report</a>
+                                    <div class="text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
 
                             </div>
@@ -94,6 +82,10 @@
                                         <i class="feather-xl text-white-50" data-feather="check-square"></i>
                                     </div>
                                 </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-white stretched-link" href="/dashboard/data">View Report</a>
+                                    <div class="text-white"><i class="fas fa-angle-right"></i></div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-3 mb-4">
@@ -106,6 +98,10 @@
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="airplay"></i>
                                     </div>
+                                </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-white stretched-link" href="/dashboard/data">View Report</a>
+                                    <div class="text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
