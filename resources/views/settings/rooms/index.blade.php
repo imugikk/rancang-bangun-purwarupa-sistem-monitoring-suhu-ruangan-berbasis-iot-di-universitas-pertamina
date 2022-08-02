@@ -47,54 +47,24 @@
                             </tr>
                         </tfoot>
                         <tbody>
+                            @foreach ($rooms as $room)
                             <tr>
                                 <td>1</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        2701
+                                        {{ $room->number }}
                                     </div>
                                 </td>
-                                <td>Griya Legita Lt.7</td>
+                                <td>{{ $room->building . ' Lt.' . $room->floor }}</td>
                                 <td>
-                                    <span class="badge bg-green-soft text-green">Sensor 1</span>
+                                    <span class="badge bg-green-soft text-green">{{ $room->device->name }}</span>
                                 </td>
                                 <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        2702
-                                    </div>
-                                </td>
-                                <td>Griya Legita Lt.7</td>
-                                <td>
-                                    <span class="badge bg-green-soft text-green">Sensor 2</span>
-                                </td>
-                                <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="#"><i data-feather="edit"></i></a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#"><i data-feather="trash-2"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        2703
-                                    </div>
-                                </td>
-                                <td>Griya Legita Lt.7</td>
-                                <td>
-                                    <span class="badge bg-green-soft text-green">Sensor 3</span>
-                                </td>
-                                <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

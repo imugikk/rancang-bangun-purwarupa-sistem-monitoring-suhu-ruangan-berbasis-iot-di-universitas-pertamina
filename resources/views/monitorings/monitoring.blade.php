@@ -29,22 +29,39 @@
                 </header>
                 <hr class="mt-4 mb-4" />
                 <div class="row">
-                    <div class="col-lg-3 mb-4">
-                        <!-- Knowledge base category card 1-->
-                        <a class="card lift lift-sm h-20 bg-success" href="/monitorings/data">
-                            <div class="card-body py-5">
-                                <h5 class="card-text text-center">2701</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 mb-4">
-                        <!-- Knowledge base category card 1-->
-                        <a class="card lift lift-sm h-20 bg-warning" href="/monitorings/data">
-                            <div class="card-body py-5">
-                                <h5 class="card-text text-center">2702</h5>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach ($rooms as $room)
+                        @if ($room->status === 'safe')
+                        <div class="col-lg-3 mb-4">
+                            <!-- Knowledge base category card 1-->
+                            <a class="card lift lift-sm h-20 bg-success" href="/monitorings/data">
+                                <div class="card-body py-5">
+                                    <h5 class="card-text text-center">{{ $room->number }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                        @endif
+                        @if ($room->status === 'warning')
+                        <div class="col-lg-3 mb-4">
+                            <!-- Knowledge base category card 1-->
+                            <a class="card lift lift-sm h-20 bg-warning" href="/monitorings/data">
+                                <div class="card-body py-5">
+                                    <h5 class="card-text text-center">{{ $room->number }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                        @endif
+                        @if ($room->status === 'danger')
+                        <div class="col-lg-3 mb-4">
+                            <!-- Knowledge base category card 1-->
+                            <a class="card lift lift-sm h-20 bg-danger" href="/monitorings/data">
+                                <div class="card-body py-5">
+                                    <h5 class="card-text text-center">{{ $room->number }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                        @endif
+                    @endforeach
+                    {{-- 
                     <div class="col-lg-3 mb-4">
                         <!-- Knowledge base category card 1-->
                         <a class="card lift lift-sm h-20 bg-success" href="/monitorings/data">
@@ -85,14 +102,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-3 mb-4">
-                        <!-- Knowledge base category card 1-->
-                        <a class="card lift lift-sm h-20 bg-danger" href="/monitorings/data">
-                            <div class="card-body py-5">
-                                <h5 class="card-text text-center">2708</h5>
-                            </div>
-                        </a>
-                    </div>
+                    --}}
                 </div>
             </div>
         </main>
