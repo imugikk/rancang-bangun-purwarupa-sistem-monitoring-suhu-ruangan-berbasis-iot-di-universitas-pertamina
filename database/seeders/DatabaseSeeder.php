@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             DeviceSeeder::class,
             ScheduleSeeder::class,
             SubjectSeeder::class,
-            LimitSeeder::class
+            LimitSeeder::class,
+            BuildingSeeder::class
         ]);
     }
 }

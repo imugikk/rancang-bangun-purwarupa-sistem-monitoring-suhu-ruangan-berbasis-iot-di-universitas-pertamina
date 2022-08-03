@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Room;
+use App\Models\Building;
 use Illuminate\Database\Seeder;
 
-class RoomSeeder extends Seeder
+class BuildingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,9 @@ class RoomSeeder extends Seeder
      */
     public function run()
     {
-        Room::create([
-            'device_id' => 1,
-            'building_id' => 1,
-            'number' => '2701'
+        Building::create([
+            'name' => 'Griya Legita',
+            'floor' => '7'
         ]);
     }
 }

@@ -42,7 +42,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Total Ruangan</div>
-                                            <div class="text-lg fw-bold">5</div>
+                                            <div class="text-lg fw-bold">{{$room['all']}}</div>
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="thermometer"></i>
                                     </div>
@@ -59,7 +59,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Sedang Digunakan</div>
-                                            <div class="text-lg fw-bold">3</div>
+                                            <div class="text-lg fw-bold">{{$room['safe']}}</div>
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="cloud"></i>
                                     </div>
@@ -77,7 +77,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Pemeriksaan Ruangan</div>
-                                            <div class="text-lg fw-bold">2</div>
+                                            <div class="text-lg fw-bold">{{$room['warning']}}</div>
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="check-square"></i>
                                     </div>
@@ -94,7 +94,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Pemeriksaan AC</div>
-                                            <div class="text-lg fw-bold">0</div>
+                                            <div class="text-lg fw-bold">{{$room['danger']}}</div>
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="airplay"></i>
                                     </div>

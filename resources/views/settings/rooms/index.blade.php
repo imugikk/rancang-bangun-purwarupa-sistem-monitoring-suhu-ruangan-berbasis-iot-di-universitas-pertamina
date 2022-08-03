@@ -55,7 +55,7 @@
                                         {{ $room->number }}
                                     </div>
                                 </td>
-                                <td>{{ $room->building . ' Lt.' . $room->floor }}</td>
+                                <td>{{ $room->building->name . ' Lt.' . $room->building->floor }}</td>
                                 <td>
                                     <span class="badge bg-green-soft text-green">{{ $room->device->name }}</span>
                                 </td>
