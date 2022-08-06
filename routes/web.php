@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LimitController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\ScheduleController;
 use App\Models\Building;
 use App\Models\Room;
 use App\Services\CheckTemperature;
@@ -104,21 +106,12 @@ Route::get('monitorings/{id}', function (Database $db, $id) {
     ]);
 });
 
-Route::get('account', function () {
-    return view('settings.accounts.index');
-});
-
-Route::get('schedules', function () {
-    return view('settings.schedules.index');
-});
-Route::get('add-schedules', function () {
-    return view('settings.schedules.add');
-});
-
 Route::resources([
     '/users' => UserController::class,
     '/limits' => LimitController::class,
-    '/rooms' => RoomController::class
+    '/rooms' => RoomController::class,
+    '/account' => AccountController::class,
+    '/schedules' => ScheduleController::class,
 ]);
 
 Route::get('test-data', function (Database $db) {

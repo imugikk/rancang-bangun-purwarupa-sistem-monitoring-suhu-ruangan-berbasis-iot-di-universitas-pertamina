@@ -18,7 +18,7 @@
                                 <i class="me-1" data-feather="send"></i>
                                 Import CSV
                             </a>
-                            <a class="btn btn-sm btn-light text-primary" href="/add-schedules">
+                            <a class="btn btn-sm btn-light text-primary" href="/schedules/create">
                                 <i class="me-1" data-feather="plus"></i>
                                 Add Schedules
                             </a>
@@ -38,7 +38,7 @@
                                 <th>Ruangan</th>
                                 <th>Tanggal</th>
                                 <th>Jam</th>
-                                <th>Mata Kuliah</th>
+                                <th>Kegiatan</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -48,7 +48,7 @@
                                 <th>Ruangan</th>
                                 <th>Tanggal</th>
                                 <th>Jam</th>
-                                <th>Mata Kuliah</th>
+                                <th>Kegiatan</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -112,7 +112,7 @@
                                     <span class="badge bg-red-soft text-red">Marketing</span>
                                 </td>
                                 <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="schedules/update"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
                                 </td>
                             </tr>

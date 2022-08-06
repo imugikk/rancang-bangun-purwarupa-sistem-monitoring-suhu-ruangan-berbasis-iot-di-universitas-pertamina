@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
 use Illuminate\Http\Request;
 
-class RoomController extends Controller
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
-
-        return view('settings.rooms.index', compact('rooms'));
+        return view('settings.accounts.index');
     }
 
     /**
@@ -26,7 +23,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('settings.rooms.create');
+        //
     }
 
     /**

@@ -37,9 +37,17 @@
                                     name="name" type="text"></div>
                             <div class="mb-3"><label for="email">Email</label><input class="form-control"
                                     id="email" name="email" type="email"></div>
-                            <div class="mb-3"><label for="password">Password</label><input class="form-control"
-                                    id="password" name="password" type="password"></div>
-                            <button type="submit">Save</button>
+                            {{-- <div class="row">
+                                <div class="col-lg-6"> --}}
+                                    <div class="mb-3"><label for="password">Password</label><input class="form-control"
+                                        id="password" name="password" type="password"></div>
+                                {{-- </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3"><label for="role">Role</label><input class="form-control"
+                                        id="role" name="role" type="role"></div>
+                                </div>
+                            </div> --}}
+                            <button class="btn btn-primary" type="submit">Save</button>
                         </form>
                     </div>
                 </div>

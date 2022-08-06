@@ -15,5 +15,6 @@
         "browser-sync-webpack-plugin": "^2.3.0",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
-    }
+    },
+    "dependencies": {}
 }

@@ -40,7 +40,7 @@
                                     id="email" name="email" type="email" value="{{$user->email}}"></div>
                             <div class="mb-3"><label for="password">Password</label><input class="form-control"
                                     id="password" name="password" type="password"></div>
-                            <button type="submit">Save</button>
+                            <button class="btn btn-primary" type="submit">Save</button>
                         </form>
                     </div>
                 </div>

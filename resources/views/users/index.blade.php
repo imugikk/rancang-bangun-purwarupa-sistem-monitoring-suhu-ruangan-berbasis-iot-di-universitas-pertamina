@@ -14,7 +14,7 @@
                                 </h1>
                             </div>
                             <div class="col-12 col-xl-auto mb-3">
-                                <a class="btn btn-sm btn-light text-primary" href="/users/create">
+                                <a class="btn btn-sm btn-light text-primary" href="{{ route('users.create') }}">
                                     <i class="me-1" data-feather="user-plus"></i>
                                     Add user
                                 </a>
@@ -29,7 +29,6 @@
                         Users
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('users.create') }}">Add User</a>
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>

@@ -39,8 +39,8 @@
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLastName">Organization</label>
-                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
+                                <label class="small mb-1" for="inputLastName">Role</label>
+                                <input readonly class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
                             </div>
                         </div>
                         <!-- Form Group (email address)-->

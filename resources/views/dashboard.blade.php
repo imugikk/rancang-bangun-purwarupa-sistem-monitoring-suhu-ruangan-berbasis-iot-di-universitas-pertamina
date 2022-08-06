@@ -58,7 +58,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
-                                            <div class="text-white-75 small">Sedang Digunakan</div>
+                                            <div class="text-white-75 small">Kondisi Ruangan Baik</div>
                                             <div class="text-lg fw-bold">{{$room['safe']}}</div>
                                         </div>
                                         <i class="feather-xl text-white-50" data-feather="cloud"></i>
@@ -107,7 +107,6 @@
                         </div>
                     </div>
                     <!-- Example DataTable for Dashboard Demo-->
-
                 </div>
         </main>
         <footer class="footer-admin mt-auto footer-light">
