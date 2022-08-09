@@ -10,8 +10,8 @@ class CheckTemperature
     public static function generateStatus($temperature, $room = null): void
     {
         $limit_temperature = LimitTemperature::all()->first();
-        $test = Carbon::now()->format('H:i');
-        $current = $room->schedules->where('start_at', '<=', $test)->where('end_at', '>=', $test)->first();
+        $hour = Carbon::now()->format('H:i');
+        $current = $room->schedules()->whereDate('date_used', Carbon::today())->where('start_at', '<=', $hour)->where('end_at', '>=', $hour)->first();
 
         if ($temperature < ($limit_temperature ? (int) $limit_temperature->down : 20.5)) {
             $room->update(['status' => 'warning']);

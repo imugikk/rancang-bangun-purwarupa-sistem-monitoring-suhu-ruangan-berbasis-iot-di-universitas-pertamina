@@ -20,8 +20,8 @@
                                 </a>
                             </div>
                         </div>
-                        </div>
                     </div>
+                </div>
             </header>
             <div class="container-xl px-4 mt-4">
                 <div class="card mb-4">
@@ -32,21 +32,23 @@
                         <form method="post" action="{{ route('users.store') }}">
                             @csrf
                             <div class="mb-3"><label for="username">Username</label><input class="form-control"
-                                    id="username" name="username" type="text"></div>
+                                    id="username" name="username" type="text" value="{{ old('username') }}"></div>
                             <div class="mb-3"><label for="name">Name</label><input class="form-control" id="name"
-                                    name="name" type="text"></div>
+                                    name="name" type="text" value="{{ old('name') }}"></div>
                             <div class="mb-3"><label for="email">Email</label><input class="form-control"
-                                    id="email" name="email" type="email"></div>
+                                    id="email" name="email" type="email" value="{{ old('email') }}"></div>
                             {{-- <div class="row">
                                 <div class="col-lg-6"> --}}
-                                    <div class="mb-3"><label for="password">Password</label><input class="form-control"
-                                        id="password" name="password" type="password"></div>
-                                {{-- </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3"><label for="role">Role</label><input class="form-control"
-                                        id="role" name="role" type="role"></div>
-                                </div>
-                            </div> --}}
+                            <div class="mb-3"><label for="password">Password</label><input class="form-control"
+                                    id="password" name="password" type="password"></div>
+                            <div class="mb-3">
+                                <label for="role">Role</label><select class="form-control form-control-solid"
+                                    id="role" name="role">
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <button class="btn btn-primary" type="submit">Save</button>
                         </form>
                     </div>

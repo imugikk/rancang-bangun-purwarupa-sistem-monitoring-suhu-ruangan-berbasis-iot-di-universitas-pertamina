@@ -20,8 +20,8 @@
                                 </a>
                             </div>
                         </div>
-                        </div>
                     </div>
+                </div>
             </header>
             <div class="container-xl px-4 mt-4">
                 <div class="card mb-4">
@@ -33,13 +33,25 @@
                             @method('PUT')
                             @csrf
                             <div class="mb-3"><label for="username">Username</label><input class="form-control"
-                                    id="username" name="username" type="text" value="{{$user->username}}"></div>
+                                    id="username" name="username" type="text" value="{{ $user->username }}"></div>
                             <div class="mb-3"><label for="name">Name</label><input class="form-control" id="name"
-                                    name="name" type="text" value="{{$user->name}}"></div>
+                                    name="name" type="text" value="{{ $user->name }}"></div>
                             <div class="mb-3"><label for="email">Email</label><input class="form-control"
-                                    id="email" name="email" type="email" value="{{$user->email}}"></div>
+                                    id="email" name="email" type="email" value="{{ $user->email }}"></div>
                             <div class="mb-3"><label for="password">Password</label><input class="form-control"
                                     id="password" name="password" type="password"></div>
+                            <div class="mb-3">
+                                <label for="role">Role</label><select class="form-control form-control-solid"
+                                    id="role" name="role">
+                                    @foreach ($roles as $role)
+                                        @if ($role->id == $user->role_id)
+                                            <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+                                        @else
+                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
                             <button class="btn btn-primary" type="submit">Save</button>
                         </form>
                     </div>

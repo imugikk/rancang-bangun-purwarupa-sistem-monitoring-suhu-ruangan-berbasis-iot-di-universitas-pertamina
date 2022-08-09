@@ -35,13 +35,13 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('dashboard', function () {
     $rooms = Room::all();
     $room['all'] = $rooms->count();
-    $room['safe'] = $rooms->filter(function($item) {
+    $room['safe'] = $rooms->filter(function ($item) {
         return $item->status == 'safe';
     })->count();
-    $room['warning'] = $rooms->filter(function($item) {
+    $room['warning'] = $rooms->filter(function ($item) {
         return $item->status == 'warning';
     })->count();
-    $room['danger'] = $rooms->filter(function($item) {
+    $room['danger'] = $rooms->filter(function ($item) {
         return $item->status == 'danger';
     })->count();
 
@@ -50,34 +50,50 @@ Route::get('dashboard', function () {
     ]);
 });
 
-Route::get('dashboard/data', function () {
+Route::get('dashboard/{status}', function ($status) {
     $rooms = Room::all();
-    $room['all'] = $rooms;
-    $room['safe'] = $rooms->filter(function($item) {
-        return $item->status == 'safe';
-    });
-    $room['warning'] = $rooms->filter(function($item) {
-        return $item->status == 'warning';
-    });
-    $room['danger'] = $rooms->filter(function($item) {
-        return $item->status == 'danger';
-    });
+    $room_status = null;
+    if ($status == 'safe') {
+        $rooms = $rooms->filter(function ($item) {
+            return $item->status == 'safe';
+        });
+        $room_status = 'Baik';
+    } elseif ($status == 'warning') {
+        $rooms = $rooms->filter(function ($item) {
+            return $item->status == 'warning';
+        });
+        $room_status = 'Periksa Ruangan';
+    } elseif ($status == 'danger') {
+        $rooms = $rooms->filter(function ($item) {
+            return $item->status == 'danger';
+        });
+        $room_status = 'Periksa AC';
+    }
 
     return view('data-dashboard', [
-        'room' => $room
+        'rooms' => $rooms,
+        'status' => $status,
+        'room_status' => $room_status
     ]);
 });
 
-Route::get('monitoring', function () {
+Route::get('monitoring', function (Database $db) {
     $buildings = Building::all();
     $rooms = Room::query()->orderBy('id', 'asc');
     $filter_building = explode("-", request('building'));
 
-    request('building') ? $rooms = $rooms->whereHas('building', function($q) use($filter_building) {
+    request('building') ? $rooms = $rooms->whereHas('building', function ($q) use ($filter_building) {
         $q->where('name', $filter_building[0])->where('floor', $filter_building[1]);
     }) : $rooms = $rooms;
 
     $rooms = $rooms->get();
+
+    foreach ($rooms as $room) {
+        $rdb_data = $db->getReference($room->device->name)->getValue();
+        $temperature_data = collect($rdb_data)->last();
+        CheckTemperature::generateStatus($temperature_data['temperature'], $room);
+    }
+
     return view('monitorings.monitoring', [
         'rooms' => $rooms,
         'buildings' => $buildings,
@@ -102,8 +118,13 @@ Route::get('monitorings/{id}', function (Database $db, $id) {
     });
 
     return view('monitorings.tabel', [
+        'room' => $room,
         'temperatures' => $temperature_data
     ]);
+});
+
+Route::post('update-room', function() {
+   dd(request('check_status'));
 });
 
 Route::resources([
@@ -113,24 +134,3 @@ Route::resources([
     '/account' => AccountController::class,
     '/schedules' => ScheduleController::class,
 ]);
-
-Route::get('test-data', function (Database $db) {
-    $room = Room::orderBy('id', 'asc')->whereHas('schedules', function ($query) {
-        $query->whereDate('date_used', Carbon::now());
-    })->first();
-    $rdb_data = $db->getReference($room->device->name)->getValue();
-
-    $temperature_data = collect($rdb_data)->last();
-
-    $test = CheckTemperature::generateStatus($temperature_data['temperature'], $room);
-    dd($room->status);
-
-
-    // $time = explode(" ", Carbon::createFromTimestamp($temperature_data['timestamp'])->timezone('Asia/Jakarta'));
-
-    // dd([
-    //     'suhu' => $temperature_data['temperature'],
-    //     'tanggal' => $time[0],
-    //     'waktu' => $time[1]
-    // ]);
-});

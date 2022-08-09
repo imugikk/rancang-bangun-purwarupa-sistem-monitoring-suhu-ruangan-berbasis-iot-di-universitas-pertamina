@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,9 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        $roles = Role::orderBy('id','asc')->get();
+
+        return view('users.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -30,6 +33,7 @@ class UserController extends Controller
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
+        $validated['role_id'] = (int) $request->role;
 
         User::create($validated);
 
@@ -43,7 +47,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.update', compact('user'));
+        $roles = Role::orderBy('id','asc')->get();
+
+        return view('users.update', compact('user', 'roles'));
     }
 
     public function update(Request $request, User $user)
@@ -64,6 +70,7 @@ class UserController extends Controller
         }
 
         $validated['password'] = $password;
+        $validated['role_id'] = (int) $request->role;
 
         $user->fill($validated);
         $user->save();
