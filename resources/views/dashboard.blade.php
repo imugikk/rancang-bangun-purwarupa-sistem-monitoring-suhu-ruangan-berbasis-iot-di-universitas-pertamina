@@ -47,10 +47,6 @@
                                         <i class="feather-xl text-white-50" data-feather="thermometer"></i>
                                     </div>
                                 </div>
-                                <div class="card-footer d-flex align-items-center justify-content-between small">
-                                    <a class="text-white stretched-link" href="/dashboard/safe">View Report</a>
-                                    <div class="text-white"><i class="fas fa-angle-right"></i></div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-3 mb-4">

@@ -14,10 +14,10 @@
                             </h1>
                         </div>
                         <div class="col-12 col-xl-auto mb-3">
-                            <a class="btn btn-sm btn-light text-primary" href="user-management-groups-list.html">
+                            <button type="button" class="btn btn-sm btn-light text-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                                 <i class="me-1" data-feather="send"></i>
                                 Import CSV
-                            </a>
+                            </button>
                             <a class="btn btn-sm btn-light text-primary" href="/schedules/create">
                                 <i class="me-1" data-feather="plus"></i>
                                 Add Schedules
@@ -27,6 +27,28 @@
                 </div>
             </div>
         </header>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Import CSV</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Example file input</label>
+                              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                          </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Import</button></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Main page content-->
         <div class="container-fluid px-4">
             <div class="card">
@@ -55,21 +77,10 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="avatar me-2"><img class="avatar-img img-fluid" src="assets/img/illustrations/profiles/profile-1.png" /></div>
-                                        Tiger Nixon
-                                    </div>
-                                </td>
-                                <td>tiger@email.com</td>
-                                <td>Administrator</td>
-                                <td>
-                                    <span class="badge bg-green-soft text-green">Sales</span>
-                                    <span class="badge bg-blue-soft text-blue">Developers</span>
-                                    <span class="badge bg-red-soft text-red">Marketing</span>
-                                    <span class="badge bg-purple-soft text-purple">Managers</span>
-                                    <span class="badge bg-yellow-soft text-yellow">Customer</span>
-                                </td>
+                                <td>2701</td>
+                                <td>08 Agustus 2022</td>
+                                <td>13:00 - 15:00</td>
+                                <td>Kelas Dasar Pemrograman</td>
                                 <td>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
@@ -77,21 +88,10 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="avatar me-2"><img class="avatar-img img-fluid" src="assets/img/illustrations/profiles/profile-2.png" /></div>
-                                        Garrett Winters
-                                    </div>
-                                </td>
-                                <td>gwinterse@email.com</td>
-                                <td>Administrator</td>
-                                <td>
-                                    <span class="badge bg-green-soft text-green">Sales</span>
-                                    <span class="badge bg-blue-soft text-blue">Developers</span>
-                                    <span class="badge bg-red-soft text-red">Marketing</span>
-                                    <span class="badge bg-purple-soft text-purple">Managers</span>
-                                    <span class="badge bg-yellow-soft text-yellow">Customer</span>
-                                </td>
+                                <td>2701</td>
+                                <td>08 Agustus 2022</td>
+                                <td>13:00 - 15:00</td>
+                                <td>Kelas Dasar Pemrograman</td>
                                 <td>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
@@ -99,20 +99,12 @@
                             </tr>
                             <tr>
                                 <td>3</td>
+                                <td>2701</td>
+                                <td>08 Agustus 2022</td>
+                                <td>13:00 - 15:00</td>
+                                <td>Kelas Dasar Pemrograman</td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="avatar me-2"><img class="avatar-img img-fluid" src="assets/img/illustrations/profiles/profile-3.png" /></div>
-                                        Ashton Cox
-                                    </div>
-                                </td>
-                                <td>ashtonc@email.com</td>
-                                <td>Registered</td>
-                                <td>
-                                    <span class="badge bg-green-soft text-green">Sales</span>
-                                    <span class="badge bg-red-soft text-red">Marketing</span>
-                                </td>
-                                <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="schedules/update"><i data-feather="edit"></i></a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
                                 </td>
                             </tr>

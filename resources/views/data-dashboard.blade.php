@@ -67,7 +67,7 @@
                                                 <span class="badge bg-red-soft text-red">{{ $room_status }}</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td id="room-update">
                                             <form action="/update-room" method="post">
                                                 @csrf
                                                 <div class="col">
@@ -106,4 +106,14 @@
             </div>
         </footer>
     </div>
+@endsection
+
+@section('extra_js')
+    <script>
+        $('#room-update').on('change', function() {
+            $('#room-update').find('option[value=""]').attr('disabled', true)
+            this.form.submit();
+        })
+        console.log('testing');
+    </script>
 @endsection
