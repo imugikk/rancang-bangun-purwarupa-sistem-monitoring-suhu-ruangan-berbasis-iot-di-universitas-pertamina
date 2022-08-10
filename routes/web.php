@@ -77,7 +77,7 @@ Route::get('dashboard/{status}', function ($status) {
     ]);
 });
 
-Route::get('monitoring', function (Database $db) {
+Route::get('monitoring', function () {
     $buildings = Building::all();
     $rooms = Room::query()->orderBy('id', 'asc');
     $filter_building = explode("-", request('building'));
@@ -87,12 +87,6 @@ Route::get('monitoring', function (Database $db) {
     }) : $rooms = $rooms;
 
     $rooms = $rooms->get();
-
-    foreach ($rooms as $room) {
-        $rdb_data = $db->getReference($room->device->name)->getValue();
-        $temperature_data = collect($rdb_data)->last();
-        CheckTemperature::generateStatus($temperature_data['temperature'], $room);
-    }
 
     return view('monitorings.monitoring', [
         'rooms' => $rooms,
@@ -123,8 +117,8 @@ Route::get('monitorings/{id}', function (Database $db, $id) {
     ]);
 });
 
-Route::post('update-room', function() {
-   dd(request('check_status'));
+Route::post('update-room', function () {
+    dd(request('check_status'));
 });
 
 Route::resources([
