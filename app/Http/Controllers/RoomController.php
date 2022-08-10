@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('settings.rooms.create');
+        $devices = Device::orderBy('id','asc')->get();
+
+        return view('settings.rooms.create', compact('devices'));
     }
 
     /**
@@ -37,7 +40,7 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

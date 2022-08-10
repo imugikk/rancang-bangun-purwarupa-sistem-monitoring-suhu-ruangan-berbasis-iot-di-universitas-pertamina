@@ -37,13 +37,7 @@
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1">Mata Kuliah</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected disabled>Select a subject:</option>
-                                            <option value="administrator">Administrator</option>
-                                            <option value="registered">Registered</option>
-                                            <option value="edtior">Editor</option>
-                                            <option value="guest">Guest</option>
-                                        </select>
+                                        <input class="form-control" id="inputMatkul" type="text" placeholder="Enter your event" value="" />
                                     </div>
                                     <!-- Form Group (last name)-->
                                 </div>
