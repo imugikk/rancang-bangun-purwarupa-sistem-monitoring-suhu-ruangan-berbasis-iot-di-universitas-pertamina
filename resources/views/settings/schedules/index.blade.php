@@ -86,7 +86,7 @@
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
                                 </td>
                             </tr>
-                            <tr>
+                            {{-- <tr>
                                 <td>2</td>
                                 <td>2701</td>
                                 <td>08 Agustus 2022</td>
@@ -107,7 +107,7 @@
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -117,7 +117,7 @@
     <footer class="footer-admin mt-auto footer-light">
         <div class="container-xl px-4">
             <div class="row">
-                <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                <div class="col-md-6 small">Copyright &copy; TA - Paraptughessa Premaswari 2022</div>
                 <div class="col-md-6 text-md-end small">
                     <a href="#!">Privacy Policy</a>
                     &middot;
