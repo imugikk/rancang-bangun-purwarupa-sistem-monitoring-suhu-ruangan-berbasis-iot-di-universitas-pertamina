@@ -28,8 +28,8 @@
                                             @csrf
                                             <!-- Form Group (email address)-->
                                             <div class="mb-3">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control" id="inputEmailAddress" type="email" name="email" placeholder="Enter email address" />
+                                                <label class="small mb-1" for="inputUsername">Username</label>
+                                                <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Enter username" />
                                             </div>
                                             <!-- Form Group (password)-->
                                             <div class="mb-3">
