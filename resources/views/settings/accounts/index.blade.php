@@ -43,19 +43,19 @@
                                             <!-- Form Group (username)-->
                                             <div class="mb-3">
                                                 <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
-                                                <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username" />
+                                                <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="admin" />
                                             </div>
                                             <!-- Form Row-->
                                             <div class="row gx-3 mb-3">
                                                 <!-- Form Group (first name)-->
                                                 <div class="col-md-6">
                                                     <label class="small mb-1" for="inputFirstName">Name</label>
-                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie" />
+                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Admin" />
                                                 </div>
                                                 <!-- Form Group (last name)-->
                                                 <div class="col-md-6">
                                                     <label class="small mb-1" for="inputLastName">Role</label>
-                                                    <input disabled class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
+                                                    <input disabled class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Administrator" />
                                                 </div>
                                             </div>
                                             <!-- Form Row        -->
@@ -63,12 +63,12 @@
                                                 <!-- Form Group (organization name)-->
                                                 <div class="col-md-6">
                                                     <label class="small mb-1" for="inputOrgName">Password</label>
-                                                    <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap" />
+                                                    <input class="form-control" id="inputOrgName" type="password" placeholder="Enter your organization name" value="******" />
                                                 </div>
                                                 <!-- Form Group (location)-->
                                                 <div class="col-md-6">
                                                     <label class="small mb-1" for="inputLocation">Confirm Password</label>
-                                                    <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA" />
+                                                    <input class="form-control" id="inputLocation" type="password" placeholder="Enter your location" value="******" />
                                                 </div>
                                             </div>
                                             <!-- Save changes button-->

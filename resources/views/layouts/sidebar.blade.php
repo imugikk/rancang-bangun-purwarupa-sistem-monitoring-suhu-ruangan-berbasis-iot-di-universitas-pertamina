@@ -46,6 +46,7 @@
                             <a class="nav-link" href="{{ route('rooms.index') }}">Ruangan</a>
                             <a class="nav-link" href="/schedules">Jadwal</a>
                             <a class="nav-link" href="{{ route('limits.index') }}">Batas Suhu</a>
+                            <a class="nav-link" href="{{ route('account.index') }}">Akun</a>
                         </nav>
                     </div>
                     <!-- Sidenav Footer-->
