@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -13,7 +14,9 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('settings.schedules.index');
+        $schedules = Schedule::orderBy('id', 'asc')->get();
+
+        return view('settings.schedules.index', compact('schedules'));
     }
 
     /**
@@ -68,7 +71,6 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-
     }
 
     /**

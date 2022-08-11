@@ -9,4 +9,9 @@ class Schedule extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function room()
+    {
+        return $this->belongsTo('App\Models\Room', 'room_id');
+    }
 }

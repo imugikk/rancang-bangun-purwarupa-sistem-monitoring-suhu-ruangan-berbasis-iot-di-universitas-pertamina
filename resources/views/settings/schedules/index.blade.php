@@ -31,20 +31,21 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
+                <form method="post" action="{{ route('import-schedule') }}" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Import CSV</h5>
                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                              <label for="exampleFormControlFile1">Example file input</label>
-                              <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                            </div>
-                          </form>
+                        @csrf
+                        <div class="form-group">
+                            <label for="schedule">Import Schedule</label>
+                            <input type="file" class="form-control-file" id="schedule-file" name="schedule-file" autocomplete="off">
+                        </div>
                     </div>
-                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Import</button></div>
+                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Import</button></div>
+                </form>
                 </div>
             </div>
         </div>
@@ -75,39 +76,19 @@
                             </tr>
                         </tfoot>
                         <tbody>
+                            @foreach ($schedules as $schedule)
                             <tr>
-                                <td>1</td>
-                                <td>2701</td>
-                                <td>08 Agustus 2022</td>
-                                <td>13:00 - 15:00</td>
-                                <td>Kelas Dasar Pemrograman</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $schedule->room->number }}</td>
+                                <td>{{ $schedule->date_used }}</td>
+                                <td>{{ $schedule->start_at }} - {{ $schedule->end_at }}</td>
+                                <td>{{ $schedule->activity }}</td>
                                 <td>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
                                 </td>
-                            </tr>
-                            {{-- <tr>
-                                <td>2</td>
-                                <td>2701</td>
-                                <td>08 Agustus 2022</td>
-                                <td>13:00 - 15:00</td>
-                                <td>Kelas Dasar Pemrograman</td>
-                                <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>2701</td>
-                                <td>08 Agustus 2022</td>
-                                <td>13:00 - 15:00</td>
-                                <td>Kelas Dasar Pemrograman</td>
-                                <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
-                                </td>
-                            </tr> --}}
+                            </tr>                                
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

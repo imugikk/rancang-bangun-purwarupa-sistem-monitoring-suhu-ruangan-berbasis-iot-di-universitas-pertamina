@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImportScheduleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LimitController;
 use App\Http\Controllers\RoomController;
@@ -31,6 +32,7 @@ Route::get('/', function () {
 Route::get('login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('login', [AuthController::class, 'login'])->name('post.login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('import-schedule', ImportScheduleController::class)->name('import-schedule');
 
 Route::get('dashboard', function () {
     $rooms = Room::all();
