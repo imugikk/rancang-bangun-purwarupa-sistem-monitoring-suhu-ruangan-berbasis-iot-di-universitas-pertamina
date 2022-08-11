@@ -57,9 +57,9 @@ class LimitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(LimitTemperature $limit)
     {
-        //
+        return view('settings.limits.update', compact('limit'));
     }
 
     /**
@@ -69,9 +69,17 @@ class LimitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, LimitTemperature $limit)
     {
-        //
+        $validated = $request->validate([
+            'up' => 'required|numeric',
+            'down' =>'required|numeric',
+        ]);
+
+        $limit->fill($validated);
+        $limit->save();
+
+        return redirect(url('limits'));
     }
 
     /**

@@ -43,10 +43,9 @@
                                         <label class="small mb-1">Sensor</label>
                                         <select class="form-select" aria-label="Default select example">
                                             <option selected disabled>Select a sensor:</option>
-                                            <option value="administrator">Administrator</option>
-                                            <option value="registered">Registered</option>
-                                            <option value="edtior">Editor</option>
-                                            <option value="guest">Guest</option>
+                                            @foreach ($devices as $device)
+                                                <option value="administrator">{{$device->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -55,10 +54,9 @@
                                     <label class="small mb-1">Office</label>
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected disabled>Select an office:</option>
-                                        <option value="administrator">Administrator</option>
-                                        <option value="registered">Registered</option>
-                                        <option value="edtior">Editor</option>
-                                        <option value="guest">Guest</option>
+                                        @foreach ($rooms as $room)
+                                            <option value="administrator">{{$room->building->name . ' Lt.' . $room->building->floor }}</option>
+                                        @endforeach
                                     </select>
                                     <div class="form-check">
                                         <input class="form-check-input" id="groupDevs" type="checkbox" value="" />
@@ -66,7 +64,7 @@
                                     </div>
                                 </div>
                                 <!-- Submit button-->
-                                <button class="btn btn-primary" type="button">Add user</button>
+                                <button class="btn btn-primary" type="submit">Add user</button>
                             </form>
                         </div>
                     </div>

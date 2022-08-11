@@ -28,8 +28,9 @@ class RoomController extends Controller
     public function create()
     {
         $devices = Device::orderBy('id','asc')->get();
+        $rooms = Room::all();
 
-        return view('settings.rooms.create', compact('devices'));
+        return view('settings.rooms.create', compact('devices', 'rooms'));
     }
 
     /**
@@ -40,7 +41,19 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $validated = $request->validate([
+            'number' => 'required',
+            'status' =>'nullable',
+            'check_status'=> 'nullable',
+        ]);
+
+        // $validated['password'] = Hash::make($validated['password']);
+        $validated['device_id'] = (int) $request->device;
+        $validated['building_id'] = (int) $request->building;
+
+        Room::create($validated);
+
+        return redirect(url('rooms'));
     }
 
     /**
@@ -62,7 +75,7 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('settings.rooms.update');
     }
 
     /**
