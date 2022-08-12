@@ -80,7 +80,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $schedule->room->number }}</td>
-                                <td>{{ $schedule->date_used }}</td>
+                                <td>{!! date('d/m/Y', strtotime($schedule->date_used)) !!}</td>
                                 <td>{{ $schedule->start_at }} - {{ $schedule->end_at }}</td>
                                 <td>{{ $schedule->activity }}</td>
                                 <td>

@@ -33,20 +33,21 @@
                         <div class="card-body">
                             <form method="post" action="{{ route('limits.update', $limit->id) }}">
                                 @method('PUT')
+                                @csrf
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1">Batas Rendah Suhu</label>
-                                        <input class="form-control" id="inputBatasRendah" type="text" placeholder="Enter your value" value="{{$limit->down}}" />
+                                        <input class="form-control" id="down" name="down" type="text" placeholder="Enter your value" value="{{$limit->down}}" />
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1">Batas Tinggi Suhu</label>
-                                        <input class="form-control" id="inputBatasTinggi" type="text" placeholder="Enter your value" value="{{$limit->up}}" />
+                                        <input class="form-control" id="up" name="up" type="text" placeholder="Enter your value" value="{{$limit->up}}" />
                                     </div>
                                 </div>
                                 <!-- Submit button-->
-                                <button class="btn btn-primary" type="Submit">Save</button>
+                                <button class="btn btn-primary" type="submit">Save</button>
                             </form>
                         </div>
                     </div>

@@ -9,4 +9,5 @@ class LimitTemperature extends Model
 {
     use HasFactory;
     protected $table = 'limit_temperature';
+    protected $guarded = ['id'];
 }
