@@ -27,7 +27,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        $devices = Device::orderBy('id','asc')->get();
+        $devices = Device::orderBy('id', 'asc')->get();
         $rooms = Room::all();
 
         return view('settings.rooms.create', compact('devices', 'rooms'));
@@ -43,11 +43,10 @@ class RoomController extends Controller
     {
         $validated = $request->validate([
             'number' => 'required',
-            'status' =>'nullable',
-            'check_status'=> 'nullable',
+            'status' => 'nullable',
+            'check_status' => 'nullable',
         ]);
 
-        // $validated['password'] = Hash::make($validated['password']);
         $validated['device_id'] = (int) $request->device;
         $validated['building_id'] = (int) $request->building;
 
@@ -73,7 +72,7 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Room $room)
     {
         return view('settings.rooms.update');
     }
@@ -85,9 +84,20 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Room $room)
     {
-        //
+        $validated = $request->validate([
+            'number' => 'required',
+            'status' => 'nullable',
+            'check_status' => 'nullable',
+        ]);
+
+        $validated['device_id'] = (int) $request->device;
+        $validated['building_id'] = (int) $request->building;
+
+        Room::create($validated);
+
+        return redirect(url('rooms'));
     }
 
     /**
