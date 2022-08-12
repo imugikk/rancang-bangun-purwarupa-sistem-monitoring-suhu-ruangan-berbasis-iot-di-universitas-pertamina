@@ -17,7 +17,6 @@ class ScheduleSeeder extends Seeder
     {
         Schedule::create([
             'room_id' => 1,
-            'subject_id' => 1,
             'start_at' => '07:00',
             'end_at' => '10:00',
             'date_used' => Carbon::now()

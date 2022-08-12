@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             RoomSeeder::class,
             DeviceSeeder::class,
             ScheduleSeeder::class,
-            SubjectSeeder::class,
             LimitSeeder::class,
             BuildingSeeder::class
         ]);
