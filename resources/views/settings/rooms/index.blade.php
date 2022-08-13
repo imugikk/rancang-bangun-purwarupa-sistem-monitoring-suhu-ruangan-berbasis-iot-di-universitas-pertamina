@@ -60,7 +60,7 @@
                                     <span class="badge bg-green-soft text-green">{{ $room->device->name }}</span>
                                 </td>
                                 <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="#"><i data-feather="edit"></i></a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ route('rooms.edit', $room->id) }}""><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#"><i data-feather="trash-2"></i></a>
                                 </td>
                             </tr>

@@ -84,10 +84,10 @@
                                 <td>{{ $schedule->start_at }} - {{ $schedule->end_at }}</td>
                                 <td>{{ $schedule->activity }}</td>
                                 <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"><i data-feather="edit"></i></a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ route('schedules.edit', $schedule->id) }}"><i data-feather="edit"></i></a>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
                                 </td>
-                            </tr>                                
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

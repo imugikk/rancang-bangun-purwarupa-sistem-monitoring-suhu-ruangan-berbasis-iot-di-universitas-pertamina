@@ -36,14 +36,8 @@
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-12">
-                                        <label class="small mb-1">Mata Kuliah</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected disabled>Select a subject:</option>
-                                            <option value="administrator">Administrator</option>
-                                            <option value="registered">Registered</option>
-                                            <option value="edtior">Editor</option>
-                                            <option value="guest">Guest</option>
-                                        </select>
+                                        <label class="small mb-1">Kegiatan</label>
+                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Kelas Dasar Pemrograman"/>
                                     </div>
                                     <!-- Form Group (last name)-->
                                 </div>
@@ -52,7 +46,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1">Office</label>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected disabled>Select an office:</option>
+                                            <option selected disabled>Gedung Griya Legita lt. 7</option>
                                             <option value="administrator">Administrator</option>
                                             <option value="registered">Registered</option>
                                             <option value="edtior">Editor</option>
@@ -62,7 +56,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1">Room</label>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected disabled>Select a room:</option>
+                                            <option selected disabled>2701</option>
                                             <option value="administrator">Administrator</option>
                                             <option value="registered">Registered</option>
                                             <option value="edtior">Editor</option>
@@ -74,15 +68,15 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName">Tanggal</label>
-                                        <input class="form-control" id="inputLastName" type="date" placeholder="Enter your last name" value="" />
+                                        <input class="form-control" id="inputLastName" type="date" placeholder="Enter your last name" value="11/08/2022" />
                                     </div>
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName">Start At</label>
-                                        <input class="form-control" id="inputLastName" type="time" placeholder="Enter your last name" value="" />
+                                        <input class="form-control" id="inputLastName" type="time" placeholder="Enter your last name" value="13:00" />
                                     </div>
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName">End At</label>
-                                        <input class="form-control" id="inputLastName" type="time" placeholder="Enter your last name" value="" />
+                                        <input class="form-control" id="inputLastName" type="time" placeholder="Enter your last name" value="15:00" />
                                     </div>
                                 </div>
                                 <!-- Submit button-->

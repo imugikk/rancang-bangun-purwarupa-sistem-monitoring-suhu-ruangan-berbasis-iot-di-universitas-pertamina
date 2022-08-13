@@ -37,12 +37,12 @@
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1">Ruangan</label>
-                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your room" value="" />
+                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your room" value="{{$room->number}}" />
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1">Sensor</label>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected disabled>Select a sensor:</option>
+                                            <option selected disabled>Sensor 1</option>
                                             <option value="administrator">Administrator</option>
                                             <option value="registered">Registered</option>
                                             <option value="edtior">Editor</option>
@@ -54,7 +54,7 @@
                                 <div class="mb-3">
                                     <label class="small mb-1">Office</label>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected disabled>Select an office:</option>
+                                        <option selected disabled>Gedung Griya Legita Lt. 7</option>
                                         <option value="administrator">Administrator</option>
                                         <option value="registered">Registered</option>
                                         <option value="edtior">Editor</option>
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <!-- Submit button-->
-                                <button class="btn btn-primary" type="button">Add user</button>
+                                <button class="btn btn-primary" type="button">Save</button>
                             </form>
                         </div>
                     </div>

@@ -57,9 +57,9 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Schedule $schedule)
     {
-        return view('settings.schedules.update');
+        return view('settings.schedules.update', compact('schedule'));
     }
 
     /**

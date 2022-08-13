@@ -34,7 +34,9 @@
                                     <th>Ruangan</th>
                                     <th>Gedung</th>
                                     <th>Status</th>
+                                    @if ($status != 'safe')
                                     <th>Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tfoot>
@@ -43,7 +45,9 @@
                                     <th>Ruangan</th>
                                     <th>Gedung</th>
                                     <th>Status</th>
+                                    @if ($status != 'safe')
                                     <th>Action</th>
+                                    @endif
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -67,6 +71,7 @@
                                                 <span class="badge bg-red-soft text-red">{{ $room_status }}</span>
                                             @endif
                                         </td>
+                                        @if ($status != 'safe')
                                         <td id="room-update">
                                             <form action="/update-room" method="post">
                                                 @csrf
@@ -85,6 +90,7 @@
                                                 </div>
                                             </form>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -96,7 +102,7 @@
         <footer class="footer-admin mt-auto footer-light">
             <div class="container-xl px-4">
                 <div class="row">
-                    <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                    <div class="col-md-6 small">Copyright &copy; TA - Paraptughessa Premaswari 2021</div>
                     <div class="col-md-6 text-md-end small">
                         <a href="#!">Privacy Policy</a>
                         &middot;
