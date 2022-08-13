@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LimitController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\UpdateAccountProfile;
 use App\Models\Building;
 use App\Models\Room;
 use App\Services\CheckTemperature;
@@ -33,6 +34,7 @@ Route::get('login', [AuthController::class, 'index'])->name('login')->middleware
 Route::post('login', [AuthController::class, 'login'])->name('post.login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('import-schedule', ImportScheduleController::class)->name('import-schedule');
+Route::put('update-account', UpdateAccountProfile::class)->name('update-account');
 
 Route::get('dashboard', function () {
     $rooms = Room::all();
