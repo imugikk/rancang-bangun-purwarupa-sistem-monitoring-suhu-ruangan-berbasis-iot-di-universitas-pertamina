@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Building;
 use App\Models\Device;
 use App\Models\Room;
 use Illuminate\Http\Request;
@@ -28,9 +29,9 @@ class RoomController extends Controller
     public function create()
     {
         $devices = Device::orderBy('id', 'asc')->get();
-        $rooms = Room::all();
+        $buildings = Building::all();
 
-        return view('settings.rooms.create', compact('devices', 'rooms'));
+        return view('settings.rooms.create', compact('devices', 'buildings'));
     }
 
     /**
@@ -74,7 +75,10 @@ class RoomController extends Controller
      */
     public function edit(Room $room)
     {
-        return view('settings.rooms.update', compact('room'));
+        $devices = Device::orderBy('id', 'asc')->get();
+        $buildings = Building::all();
+
+        return view('settings.rooms.update', compact('room', 'devices', 'buildings'));
     }
 
     /**
@@ -95,7 +99,8 @@ class RoomController extends Controller
         $validated['device_id'] = (int) $request->device;
         $validated['building_id'] = (int) $request->building;
 
-        Room::create($validated);
+        $room->fill($validated);
+        $room->save();
 
         return redirect(url('rooms'));
     }
@@ -106,8 +111,9 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Room $room)
     {
-        //
+        $room->delete();
+        return redirect(url('rooms'));
     }
 }
