@@ -31,20 +31,21 @@
                     <div class="card mb-4">
                         <div class="card-header">Rooms Details</div>
                         <div class="card-body">
-                            <form>
+                            <form method="post" action="{{ route('rooms.store') }}">
+                                @csrf
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1">Ruangan</label>
-                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your room" value="" />
+                                        <input class="form-control" id="number" type="text" placeholder="Enter your room number" name="number"/>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1">Sensor</label>
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" aria-label="Default select example" name="device">
                                             <option selected disabled>Select a sensor:</option>
                                             @foreach ($devices as $device)
-                                                <option value="administrator">{{$device->name}}</option>
+                                                <option value="{{ $device->id }}">{{$device->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -52,19 +53,19 @@
                                 <!-- Form Group (Roles)-->
                                 <div class="mb-3">
                                     <label class="small mb-1">Office</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" name="building">
                                         <option selected disabled>Select an office:</option>
                                         @foreach ($rooms as $room)
-                                            <option value="administrator">{{$room->building->name . ' Lt.' . $room->building->floor }}</option>
+                                            <option value="{{ $room->building->id }}">{{$room->building->name . ' Lt.' . $room->building->floor }}</option>
                                         @endforeach
                                     </select>
-                                    <div class="form-check">
+                                    {{-- <div class="form-check">
                                         <input class="form-check-input" id="groupDevs" type="checkbox" value="" />
                                         <label class="form-check-label" for="groupDevs">Add new office</label>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <!-- Submit button-->
-                                <button class="btn btn-primary" type="submit">Add user</button>
+                                <button class="btn btn-primary" type="submit">Add room</button>
                             </form>
                         </div>
                     </div>
