@@ -11,14 +11,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users= User::orderBy('id', 'asc')->get();
+        $users = User::orderBy('id', 'asc')->get();
 
         return view('users.index', compact('users'));
     }
 
     public function create()
     {
-        $roles = Role::orderBy('id','asc')->get();
+        $roles = Role::orderBy('id', 'asc')->get();
 
         return view('users.create', compact('roles'));
     }
@@ -27,8 +27,8 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'email' => 'nullable',
-            'username' =>'required',
-            'name'=> 'required',
+            'username' => 'required',
+            'name' => 'required',
             'password' => 'required|min:5|max:255'
         ]);
 
@@ -47,7 +47,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $roles = Role::orderBy('id','asc')->get();
+        $roles = Role::orderBy('id', 'asc')->get();
 
         return view('users.update', compact('user', 'roles'));
     }
@@ -56,8 +56,8 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'email' => 'nullable',
-            'username' =>'required',
-            'name'=> 'required',
+            'username' => 'required',
+            'name' => 'required',
             'password' => 'nullable|min:5|max:255'
         ]);
 

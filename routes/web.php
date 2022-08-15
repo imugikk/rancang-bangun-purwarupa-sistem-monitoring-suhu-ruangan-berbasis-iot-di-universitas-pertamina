@@ -12,6 +12,7 @@ use App\Models\Building;
 use App\Models\Room;
 use App\Services\CheckTemperature;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Kreait\Firebase\Contract\Database;
 
@@ -119,6 +120,12 @@ Route::get('monitorings/{id}', function (Database $db, $id) {
         'room' => $room,
         'temperatures' => $temperature_data
     ]);
+});
+
+Route::get('room-by-building/{id}', function ($id) {
+    $rooms = Room::where('building_id', $id)->get();
+
+    return $rooms;
 });
 
 Route::post('update-room', function () {

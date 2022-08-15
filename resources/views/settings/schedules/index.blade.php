@@ -92,8 +92,14 @@
                                 <td>
                                     <a class="btn btn-datatable btn-icon btn-transparent-dark me-2"
                                         href="{{ route('schedules.edit', $schedule->id) }}"><i data-feather="edit"></i></a>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i
-                                            data-feather="trash-2"></i></a>
+                                    <form class="d-inline" method="post"
+                                        action="{{ route('schedules.destroy', $schedule->id) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"><i
+                                                data-feather="trash-2"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -21,7 +21,8 @@
                                                 <option selected disabled>Select an office:</option>
 
                                                 @foreach ($buildings as $building)
-                                                    <option value="{{ $building->name . '-' . $building->floor }}" {{ $filter_building === "{$building->name}-{$building->floor}" ? 'selected' : ''}}>
+                                                    <option value="{{ $building->name . '-' . $building->floor }}"
+                                                        {{ $filter_building === "{$building->name}-{$building->floor}" ? 'selected' : '' }}>
                                                         {{ $building->name . ' Lt.' . $building->floor }}</option>
                                                 @endforeach
                                             </select>
@@ -38,7 +39,7 @@
                         @if ($room->status === 'safe')
                             <div class="col-lg-3 mb-4">
                                 <!-- Knowledge base category card 1-->
-                                <a class="card lift lift-sm h-20 bg-success" href="/monitorings/{{$room->id}}">
+                                <a class="card lift lift-sm h-20 bg-success" href="/monitorings/{{ $room->id }}">
                                     <div class="card-body py-5">
                                         <h5 class="card-text text-center">{{ $room->number }}</h5>
                                     </div>
@@ -48,7 +49,7 @@
                         @if ($room->status === 'warning')
                             <div class="col-lg-3 mb-4">
                                 <!-- Knowledge base category card 1-->
-                                <a class="card lift lift-sm h-20 bg-warning" href="/monitorings/{{$room->id}}">
+                                <a class="card lift lift-sm h-20 bg-warning" href="/monitorings/{{ $room->id }}">
                                     <div class="card-body py-5">
                                         <h5 class="card-text text-center">{{ $room->number }}</h5>
                                     </div>
@@ -58,7 +59,7 @@
                         @if ($room->status === 'danger')
                             <div class="col-lg-3 mb-4">
                                 <!-- Knowledge base category card 1-->
-                                <a class="card lift lift-sm h-20 bg-danger" href="/monitorings/{{$room->id}}">
+                                <a class="card lift lift-sm h-20 bg-danger" href="/monitorings/{{ $room->id }}">
                                     <div class="card-body py-5">
                                         <h5 class="card-text text-center">{{ $room->number }}</h5>
                                     </div>
@@ -124,11 +125,11 @@
     </div>
 @endsection
 
-@section('extra_js')
+@push('extra_js')
     <script>
         $('#filter-building').on('change', function() {
             $('#filter-building').find('option[value=""]').attr('disabled', true)
             this.form.submit();
         })
     </script>
-@endsection
+@endpush
