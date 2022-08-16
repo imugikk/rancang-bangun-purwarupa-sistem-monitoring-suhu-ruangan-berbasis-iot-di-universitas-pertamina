@@ -128,8 +128,12 @@ Route::get('room-by-building/{id}', function ($id) {
     return $rooms;
 });
 
-Route::post('update-room', function () {
-    dd(request('check_status'));
+Route::post('update-room', function (Request $request) {
+    Room::where('id', (int) $request->room_id)->update([
+        'check_status' => $request->check_status
+    ]);
+
+    return redirect(url("dashboard/{$request->status}"));
 });
 
 Route::resources([

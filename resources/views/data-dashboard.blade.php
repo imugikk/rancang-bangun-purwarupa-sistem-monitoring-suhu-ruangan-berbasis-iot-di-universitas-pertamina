@@ -75,8 +75,10 @@
                                             <td id="room-update">
                                                 <form action="/update-room" method="post">
                                                     @csrf
+                                                    <input type="hidden" name="room_id" value="{{ $room->id }}">
+                                                    <input type="hidden" name="status" value="{{ $status }}">
                                                     <div class="col">
-                                                        <select class="form-select" name="check_status">
+                                                        <select class="form-select check_status" name="check_status">
                                                             <option value="Tidak Diperiksa"
                                                                 {{ $room->check_status == 'Tidak Diperiksa' ? 'selected' : '' }}>
                                                                 Tidak Diperiksa</option>
@@ -116,10 +118,8 @@
 
 @push('extra_js')
     <script>
-        $('#room-update').on('change', function() {
-            $('#room-update').find('option[value=""]').attr('disabled', true)
+        $('#datatablesSimple').on('change', '.check_status', function() {
             this.form.submit();
-        })
-        console.log('testing');
+        });
     </script>
 @endpush
