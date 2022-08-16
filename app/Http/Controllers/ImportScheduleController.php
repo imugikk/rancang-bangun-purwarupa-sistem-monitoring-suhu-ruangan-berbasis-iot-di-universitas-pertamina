@@ -48,8 +48,6 @@ class ImportScheduleController extends Controller
         }
 
         return redirect('/schedules')->with('success', 'Import data successfully');
-        // dd($data);
-        // dd('Hello World');
     }
 
     private function upload($name, UploadedFile $photo, $folder)

@@ -23,12 +23,12 @@
                     <!-- Sidenav Menu Heading (Core)-->
                     <div class="sidenav-menu-heading">Core</div>
                     <!-- Sidenav Accordion (Dashboard)-->
-                    @if(Auth::check() && auth()->user()->role_id  == "1")
-                        <a class="nav-link collapsed" href="{{url('/dashboard')}}">
+                    @if (Auth::check() && auth()->user()->role_id == '1')
+                        <a class="nav-link collapsed" href="{{ url('/dashboard') }}">
                             <div class="nav-link-icon"><i data-feather="menu"></i></div>
                             Dashboards
                         </a>
-                        <a class="nav-link collapsed" href="{{url('/monitoring')}}">
+                        <a class="nav-link collapsed" href="{{ url('/monitoring') }}">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Monitoring
                         </a>
@@ -36,8 +36,8 @@
                             <div class="nav-link-icon"><i data-feather="user"></i></div>
                             User Management
                         </a>
-                        <a class="nav-link collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSettings"
+                            aria-expanded="false" aria-controls="collapseSettings">
                             <div class="nav-link-icon"><i data-feather="settings"></i></div>
                             Settings
                             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -51,23 +51,23 @@
                             </nav>
                         </div>
                     @elseif (Auth::check())
-                        <a class="nav-link collapsed" href="{{url('/dashboard')}}">
+                        <a class="nav-link collapsed" href="{{ url('/dashboard') }}">
                             <div class="nav-link-icon"><i data-feather="menu"></i></div>
                             Dashboards
                         </a>
-                        <a class="nav-link collapsed" href="{{url('/monitoring')}}">
+                        <a class="nav-link collapsed" href="{{ url('/monitoring') }}">
                             <div class="nav-link-icon"><i data-feather="activity"></i></div>
                             Monitoring
                         </a>
-                        <a class="nav-link collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSettings"
+                            aria-expanded="false" aria-controls="collapseSettings">
                             <div class="nav-link-icon"><i data-feather="settings"></i></div>
                             Settings
                             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseSettings" data-bs-parent="#accordionSidenav">
-                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages"
-                                <a class="nav-link" href="{{ route('account.index') }}">Akun</a>
+                            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages" <a
+                                class="nav-link" href="{{ route('account.index') }}">Akun</a>
                             </nav>
                         </div>
                     @endif
@@ -75,7 +75,7 @@
                     <div class="sidenav-footer">
                         <div class="sidenav-footer-content">
                             <div class="sidenav-footer-subtitle">Logged in as:</div>
-                            <div class="sidenav-footer-title">{{auth()->user()->name}}</div>
+                            <div class="sidenav-footer-title">{{ auth()->user()->name }}</div>
                         </div>
                     </div>
         </nav>

@@ -35,7 +35,7 @@
                                     <th>Gedung</th>
                                     <th>Status</th>
                                     @if ($status != 'safe')
-                                    <th>Action</th>
+                                        <th>Action</th>
                                     @endif
                                 </tr>
                             </thead>
@@ -46,7 +46,7 @@
                                     <th>Gedung</th>
                                     <th>Status</th>
                                     @if ($status != 'safe')
-                                    <th>Action</th>
+                                        <th>Action</th>
                                     @endif
                                 </tr>
                             </tfoot>
@@ -72,24 +72,24 @@
                                             @endif
                                         </td>
                                         @if ($status != 'safe')
-                                        <td id="room-update">
-                                            <form action="/update-room" method="post">
-                                                @csrf
-                                                <div class="col">
-                                                    <select class="form-select" name="check_status">
-                                                        <option value="Tidak Diperiksa"
-                                                            {{ $room->check_status == 'Tidak Diperiksa' ? 'selected' : '' }}>
-                                                            Tidak Diperiksa</option>
-                                                        <option value="Sedang Diperiksa"
-                                                            {{ $room->check_status == 'Sedang Diperiksa' ? 'selected' : '' }}>
-                                                            Sedang Diperiksa</option>
-                                                        <option value="Sudah Diperiksa"
-                                                            {{ $room->check_status == 'Sudah Diperiksa' ? 'selected' : '' }}>
-                                                            Sudah Diperiksa</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </td>
+                                            <td id="room-update">
+                                                <form action="/update-room" method="post">
+                                                    @csrf
+                                                    <div class="col">
+                                                        <select class="form-select" name="check_status">
+                                                            <option value="Tidak Diperiksa"
+                                                                {{ $room->check_status == 'Tidak Diperiksa' ? 'selected' : '' }}>
+                                                                Tidak Diperiksa</option>
+                                                            <option value="Sedang Diperiksa"
+                                                                {{ $room->check_status == 'Sedang Diperiksa' ? 'selected' : '' }}>
+                                                                Sedang Diperiksa</option>
+                                                            <option value="Sudah Diperiksa"
+                                                                {{ $room->check_status == 'Sudah Diperiksa' ? 'selected' : '' }}>
+                                                                Sudah Diperiksa</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </td>
                                         @endif
                                     </tr>
                                 @endforeach
@@ -114,7 +114,7 @@
     </div>
 @endsection
 
-@section('extra_js')
+@push('extra_js')
     <script>
         $('#room-update').on('change', function() {
             $('#room-update').find('option[value=""]').attr('disabled', true)
@@ -122,4 +122,4 @@
         })
         console.log('testing');
     </script>
-@endsection
+@endpush

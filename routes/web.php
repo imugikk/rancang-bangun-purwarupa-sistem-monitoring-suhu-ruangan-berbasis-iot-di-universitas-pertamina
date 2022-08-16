@@ -7,10 +7,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LimitController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\UpdateAccountProfile;
 use App\Models\Building;
 use App\Models\Room;
 use App\Services\CheckTemperature;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Kreait\Firebase\Contract\Database;
 
@@ -33,6 +35,7 @@ Route::get('login', [AuthController::class, 'index'])->name('login')->middleware
 Route::post('login', [AuthController::class, 'login'])->name('post.login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('import-schedule', ImportScheduleController::class)->name('import-schedule');
+Route::put('update-account', UpdateAccountProfile::class)->name('update-account');
 
 Route::get('dashboard', function () {
     $rooms = Room::all();
@@ -117,6 +120,12 @@ Route::get('monitorings/{id}', function (Database $db, $id) {
         'room' => $room,
         'temperatures' => $temperature_data
     ]);
+});
+
+Route::get('room-by-building/{id}', function ($id) {
+    $rooms = Room::where('building_id', $id)->get();
+
+    return $rooms;
 });
 
 Route::post('update-room', function () {
