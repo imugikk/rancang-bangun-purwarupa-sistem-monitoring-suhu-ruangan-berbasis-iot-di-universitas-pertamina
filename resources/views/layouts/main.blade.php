@@ -26,14 +26,86 @@
     </script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
+    {{-- <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/litepicker.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            checkNotifcation();
+            setInterval(function() {
+                getOneNotification();
+            }, 10000);
+        });
+
+        const checkNotifcation = () => {
+            $.ajax({
+                url: '{{ route('get-user-notification') }}',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    if (data.data.length > 0) {
+                        $(data.data).each(function(index, value) {
+                            let array = JSON.parse(value.data);
+                            $('#notification-container').append(generateNotificationTemplate(array, value.id));
+                        });
+                        $('#last_date_notif').val(data.last_created_at);
+                    }
+                }
+            });
+        }
+
+        const getOneNotification = () => {
+            $.ajax({
+                url: '{{ route('get-one-user-notification') }}',
+                type: 'GET',
+                data: {
+                    last_date: $('#last_date_notif').val()
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.data) {
+                        console.log(data);
+                        let array = JSON.parse(data.data.data);
+                        $('#notification-container').append(generateNotificationTemplate(array, data.data.id));
+                        $('#last_date_notif').val(data.last_created_at);
+                    }
+                }
+            });
+        }
+
+        const readNotification = (id) => {
+            $.ajax({
+                url: '{{ route('read-user-notification') }}',
+                type: 'GET',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    if (data.success) {
+                        $('#notification-' + id).remove();
+                    }
+                }
+            });
+        }
+
+        const generateNotificationTemplate = (item, id) => {
+            let template = `<a onclick="readNotification('${id}')" class="dropdown-item dropdown-notifications-item" href="${item.link}">
+                                <div class="dropdown-notifications-item-content">
+                                    <div class="dropdown-notifications-item-content-details">${item.date}</div>
+                                    <div class="dropdown-notifications-item-content-text">${item.title}</div>
+                                </div>
+                            </a>`;
+
+            return template;
+        }
+    </script>
 
     @stack('extra_js')
 </body>
