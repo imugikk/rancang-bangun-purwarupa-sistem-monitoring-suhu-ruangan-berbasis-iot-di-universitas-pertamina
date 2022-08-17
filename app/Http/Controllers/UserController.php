@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -36,6 +37,7 @@ class UserController extends Controller
         $validated['role_id'] = (int) $request->role;
 
         User::create($validated);
+        Alert::success('Congrats', 'You\'ve Successfully Added an User');
 
         return redirect(url('users'));
     }
