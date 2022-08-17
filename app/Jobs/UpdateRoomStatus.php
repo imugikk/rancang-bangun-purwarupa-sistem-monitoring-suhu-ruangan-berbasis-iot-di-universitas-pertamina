@@ -45,7 +45,7 @@ class UpdateRoomStatus implements ShouldQueue
             if ($status_old != $status && ($status == 'warning' || $status == 'danger')) {
                 $user = User::all();
                 $array = [
-                    'title' => 'Room ' . $room->name . ' is ' . $status,
+                    'title' => 'Room ' . $room->number . ' is ' . $status,
                     'status' => $status,
                     'room_id' => $room->id,
                     'date' => date('Y-m-d H:i:s'),

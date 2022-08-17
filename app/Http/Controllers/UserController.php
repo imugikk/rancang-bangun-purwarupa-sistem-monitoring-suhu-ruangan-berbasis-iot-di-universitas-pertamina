@@ -37,7 +37,7 @@ class UserController extends Controller
         $validated['role_id'] = (int) $request->role;
 
         User::create($validated);
-        Alert::success('Congrats', 'You\'ve Successfully Added an User');
+        // Alert::success('Congrats', 'You\'ve Successfully Added an User');
 
         return redirect(url('users'));
     }
