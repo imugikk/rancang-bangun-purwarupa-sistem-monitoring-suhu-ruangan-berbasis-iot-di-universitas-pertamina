@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -36,6 +37,7 @@ class UserController extends Controller
         $validated['role_id'] = (int) $request->role;
 
         User::create($validated);
+        // Alert::success('Congrats', 'You\'ve Successfully Added an User');
 
         return redirect(url('users'));
     }
@@ -82,5 +84,43 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect(url('users'));
+    }
+
+    public function getNotificationUser()
+    {
+        $user = User::find(auth()->user()->id);
+        $notifications = $user->unreadNotifications->sortBy('created_at');
+        return response()->json([
+            'code' => 200,
+            'data' => $notifications,
+            'last_created_at' => date('Y-m-d H:i:s', strtotime($notifications->last()->created_at))
+        ]);
+    }
+
+    public function getOneNewestNotification(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        $notification = $user->unreadNotifications->where('created_at', '>', $request->last_date)->first();
+        $last_created_at = null;
+        if (isset($notification)) {
+            $last_created_at = date('Y-m-d H:i:s', strtotime($notification->created_at));
+        }
+
+        return response()->json([
+            'code' => 200,
+            'data' => $notification,
+            'last_created_at' => $last_created_at
+        ]);
+    }
+
+    public function readNotif(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        $notification = $user->unreadNotifications->where('id', $request->id)->first();
+        $notification->markAsRead();
+        return response()->json([
+            'code' => 200,
+            'data' => $notification
+        ]);
     }
 }

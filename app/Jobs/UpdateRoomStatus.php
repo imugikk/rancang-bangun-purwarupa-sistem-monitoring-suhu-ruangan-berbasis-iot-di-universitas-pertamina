@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Room;
+use App\Models\User;
 use App\Services\CheckTemperature;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -11,6 +12,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Kreait\Firebase\Contract\Database;
+use App\Notifications\UserNotification;
 
 class UpdateRoomStatus implements ShouldQueue
 {
@@ -36,9 +38,25 @@ class UpdateRoomStatus implements ShouldQueue
         $rooms = Room::all();
 
         foreach ($rooms as $room) {
+            $status_old = $room->status;
             $rdb_data = $db->getReference($room->device->name)->getValue();
             $temperature_data = collect($rdb_data)->last();
-            CheckTemperature::generateStatus($temperature_data['temperature'], $room);
+            $status = CheckTemperature::generateStatus($temperature_data['temperature'], $room);
+            if ($status_old != $status && ($status == 'warning' || $status == 'danger')) {
+                $user = User::all();
+                $array = [
+                    'title' => 'Room ' . $room->number . ' is ' . $status,
+                    'status' => $status,
+                    'room_id' => $room->id,
+                    'date' => date('Y-m-d H:i:s'),
+                    'link' => '#'
+                ];
+                foreach ($user as $u) {
+                    $u->notify(new UserNotification(json_encode($array)));
+                }
+                //TODO: Send Notification
+                logger('Send Notification', ['status' => $status, 'room' => $room]);
+            }
         }
     }
 }

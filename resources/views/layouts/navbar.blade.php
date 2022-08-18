@@ -47,43 +47,13 @@ id="sidenavAccordion">
                 <i class="me-2" data-feather="bell"></i>
                 Alerts Center
             </h6>
-            <!-- Example Alert 1-->
-            <a class="dropdown-item dropdown-notifications-item" href="#!">
-                {{-- <div class="dropdown-notifications-item-icon bg-warning"><i data-feather="activity"></i></div> --}}
-                <div class="dropdown-notifications-item-content">
-                    <div class="dropdown-notifications-item-content-details">August 08, 2022</div>
-                    <div class="dropdown-notifications-item-content-text">Perlu pemeriksaan AC pada Ruangan 2702</div>
-                </div>
-            </a>
-            <!-- Example Alert 2-->
-            <a class="dropdown-item dropdown-notifications-item" href="#!">
-                {{-- <div class="dropdown-notifications-item-icon bg-info"><i data-feather="bar-chart"></i></div> --}}
-                <div class="dropdown-notifications-item-content">
-                    <div class="dropdown-notifications-item-content-details">August 09, 2022</div>
-                    <div class="dropdown-notifications-item-content-text">Perlu pemeriksaan ruangan pada Ruangan 2701</div>
-                </div>
-            </a>
-            <!-- Example Alert 3-->
-            <a class="dropdown-item dropdown-notifications-item" href="#!">
-                {{-- <div class="dropdown-notifications-item-icon bg-danger"><i
-                        class="fas fa-exclamation-triangle"></i></div> --}}
-                <div class="dropdown-notifications-item-content">
-                    <div class="dropdown-notifications-item-content-details">August 09, 2022</div>
-                    <div class="dropdown-notifications-item-content-text">Ruangan 2702 sedang diperiksa oleh Admin</div>
-                </div>
-            </a>
-            <!-- Example Alert 4-->
-            <a class="dropdown-item dropdown-notifications-item" href="#!">
-                {{-- <div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i>
-                </div> --}}
-                <div class="dropdown-notifications-item-content">
-                    <div class="dropdown-notifications-item-content-details">August 10, 2022</div>
-                    <div class="dropdown-notifications-item-content-text">Ruangan 2702 sudah diperiksa oleh Admin</div>
-                </div>
-            </a>
+            <div id="notification-container">
+
+            </div>
             <a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
         </div>
     </li>
+    <input type="hidden" id="last_date_notif">
     <!-- User Dropdown-->
     <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
         <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
@@ -95,8 +65,8 @@ id="sidenavAccordion">
             <h6 class="dropdown-header d-flex align-items-center">
                 <img class="dropdown-user-img" src="{{asset('assets/img/illustrations/profiles/profile-1.png')}}" />
                 <div class="dropdown-user-details">
-                    <div class="dropdown-user-details-name">Valerie Luna</div>
-                    <div class="dropdown-user-details-email">vluna@aol.com</div>
+                    <div class="dropdown-user-details-name">{{ auth()->user()->name }}</div>
+                    <div class="dropdown-user-details-email">{{ auth()->user()->role->name  }}</div>
                 </div>
             </h6>
             <div class="dropdown-divider"></div>

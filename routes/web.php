@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BuildingController;
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ImportScheduleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LimitController;
@@ -141,4 +143,11 @@ Route::resources([
     '/rooms' => RoomController::class,
     '/account' => AccountController::class,
     '/schedules' => ScheduleController::class,
+    '/buildings' => BuildingController::class,
+    '/devices' => DeviceController::class,
 ]);
+
+Route::get('/get-user-notification', [UserController::class, 'getNotificationUser'])->name('get-user-notification');
+Route::get('/get-one-user-notification', [UserController::class, 'getOneNewestNotification'])->name('get-one-user-notification');
+Route::get('/read-user-notification', [UserController::class, 'readNotif'])->name('read-user-notification');
+
