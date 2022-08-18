@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
-    <meta http-equiv="refresh" content="60">
+    <meta http-equiv="refresh" content="300">
     <meta name="author" content="" />
     <title>Dashboard - SmartTemp UP</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -55,7 +55,8 @@
                     if (data.data.length > 0) {
                         $(data.data).each(function(index, value) {
                             let array = JSON.parse(value.data);
-                            $('#notification-container').append(generateNotificationTemplate(array, value.id));
+                            $('#notification-container').append(generateNotificationTemplate(array,
+                                value.id));
                         });
                         $('#last_date_notif').val(data.last_created_at);
                     }
@@ -75,7 +76,8 @@
                     if (data.data) {
                         console.log(data);
                         let array = JSON.parse(data.data.data);
-                        $('#notification-container').append(generateNotificationTemplate(array, data.data.id));
+                        $('#notification-container').append(generateNotificationTemplate(array, data.data
+                            .id));
                         $('#last_date_notif').val(data.last_created_at);
                     }
                 }

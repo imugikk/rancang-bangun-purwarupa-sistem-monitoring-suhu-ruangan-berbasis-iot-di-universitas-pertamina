@@ -150,4 +150,3 @@ Route::resources([
 Route::get('/get-user-notification', [UserController::class, 'getNotificationUser'])->name('get-user-notification');
 Route::get('/get-one-user-notification', [UserController::class, 'getOneNewestNotification'])->name('get-one-user-notification');
 Route::get('/read-user-notification', [UserController::class, 'readNotif'])->name('read-user-notification');
-
