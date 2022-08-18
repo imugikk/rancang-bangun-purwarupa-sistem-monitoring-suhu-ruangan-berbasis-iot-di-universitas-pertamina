@@ -20,7 +20,9 @@
 </head>
 
 <body class="nav-fixed">
-    @include('layouts.navbar')
+    @include('layouts.navbar', [
+        'notifications' => \App\Models\Notification::orderBy('id', 'desc')->get(),
+    ])
     @include('layouts.sidebar')
     @include('sweetalert::alert')
 
