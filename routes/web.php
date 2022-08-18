@@ -11,6 +11,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UpdateAccountProfile;
 use App\Models\Building;
+use App\Models\Notification;
 use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -130,9 +131,17 @@ Route::get('room-by-building/{id}', function ($id) {
 });
 
 Route::post('update-room', function (Request $request) {
-    Room::where('id', (int) $request->room_id)->update([
+    $room = Room::find((int) $request->room_id);
+    $room->update([
         'check_status' => $request->check_status
     ]);
+
+    if ($request->check_status != 'Tidak Diperiksa') {
+        Notification::create([
+            'room_id' => (int) $request->room_id,
+            'description' => 'Ruangan ' . $room->number . " {$request->check_status}"
+        ]);
+    }
 
     return redirect(url("dashboard/{$request->status}"));
 });
