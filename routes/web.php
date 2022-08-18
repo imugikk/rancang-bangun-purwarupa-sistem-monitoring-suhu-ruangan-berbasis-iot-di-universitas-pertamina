@@ -10,7 +10,6 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UpdateAccountProfile;
 use App\Models\Building;
 use App\Models\Room;
-use App\Services\CheckTemperature;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
