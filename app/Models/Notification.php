@@ -14,7 +14,7 @@ class Notification extends Model
     public function getCreatedAtAttribute($value)
     {
         $date = Carbon::parse($value);
-        $new_date = $date->format('F d, Y');
+        $new_date = $date->format('d/m/Y H:i');
 
         return $new_date;
         // return Carbon::createFromFormat('d/m/Y', $value)->toDateTimeString();

@@ -50,21 +50,26 @@
                 <div id="notification-container">
 
                 </div>
-                <a class="dropdown-item dropdown-notifications-footer" href="#!">
-                    <div class="dropdown-notifications-item-content">
-                        @if (count($notifications) == 0)
-                            <div class="dropdown-notifications-item-content-text">No Data</div>
-                        @else
-                            @foreach ($notifications as $notification)
-                                <div class="dropdown-notifications-item-content-details">
-                                    {{ $notification->created_at }}</div>
-                                <div class="dropdown-notifications-item-content-text">
-                                    {{ $notification->description }}
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-                </a>
+
+                    @if (count($notifications) == 0)
+                    <a class="dropdown-item dropdown-notifications-footer" href="#!">
+                        <div class="dropdown-notifications-item-content">
+                        <div class="dropdown-notifications-item-content-text">No Data</div>
+                        </div>
+                    </a>
+                    @else
+                    @foreach ($notifications as $notification)
+                    <a class="dropdown-item dropdown-notifications-item" href="/notifications">
+                        <div class="dropdown-notifications-item-content">
+                            <div class="dropdown-notifications-item-content-details">
+                                {{ $notification->created_at }}</div>
+                            <div class="dropdown-notifications-item-content-text">
+                                {{ $notification->description }}</div>
+                        </div>
+                    </a>
+                    @endforeach
+                    <a class="dropdown-item dropdown-notifications-footer" href="/notifications">View All Alerts</a>
+                    @endif
             </div>
         </li>
         <input type="hidden" id="last_date_notif">

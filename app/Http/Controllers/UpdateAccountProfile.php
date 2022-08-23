@@ -35,8 +35,8 @@ class UpdateAccountProfile extends Controller
 
         $validated['password'] = $password;
 
-        $user->fill($validated);
-        $user->save();
+        // $user->fill($validated);
+        // $user->save();
 
         return redirect(url('account'));
     }
